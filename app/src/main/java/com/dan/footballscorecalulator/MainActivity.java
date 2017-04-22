@@ -23,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
         //hide action bar code
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Basketball Game");
+        actionBar.hide();
+
 
         // Restore value of scores from both team and display those restored data
         if (savedInstanceState != null) {
@@ -70,18 +71,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void redCardA(View view) {
-        redA = redA + 1;
-        displayRedA(redA);
-    }
+        if (redA <=10){
+            redA = redA + 1;
+            displayRedA(redA);
+    }}
 
     public void yellowCardA(View view) {
-        yellowA = yellowA + 1;
-        displayYellowA(yellowA);
-        if ((yellowA % 2) == 0) {
-            redA += 1;
-            displayRedA(redA);
-        }
-    }
+        if (yellowA<=10){
+            yellowA = yellowA + 1;
+            displayYellowA(yellowA);
+            if ((yellowA % 2) == 0) {
+                redA += 1;
+                displayRedA(redA);
+            }
+    }}
 
     /**
      * Displays the given score for Team A.
@@ -113,20 +116,22 @@ public class MainActivity extends AppCompatActivity {
     int redB;
 
     public void redCardB(View view) {
-        redB += 1;
-        displayRedB(redB);
-    }
+        if (redB<=10){
+            redB += 1;
+            displayRedB(redB);
+    }}
 
     int yellowB;
 
     public void yellowCardB(View view) {
-        yellowB += 1;
-        displayYellowB(yellowB);
-        if ((yellowB % 2) == 0) {
-            redB += 1;
-            displayRedB(redB);
+        if (yellowB<=10){
+            yellowB += 1;
+            displayYellowB(yellowB);
+            if ((yellowB % 2) == 0) {
+                redB += 1;
+                displayRedB(redB);
         }
-    }
+    }}
     public void reset(View view){
        scoreTeamA=0;displayscoreTeamA(scoreTeamA);
         scoreTeamB=0;displayscoreTeamB(scoreTeamB);
